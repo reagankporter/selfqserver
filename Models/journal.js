@@ -1,7 +1,8 @@
 const {DataTypes} = require('sequelize');
 const db = require('../db');
 
-const Journal = db.define('daily log', {
+const journal = db.define('journal', {
+
     date: {
         type: DataTypes.STRING,
         allowNull: false
@@ -15,11 +16,11 @@ const Journal = db.define('daily log', {
         allowNull: false
     },
     rating: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     owner: {
         type: DataTypes.INTEGER
     }
 });
-module.exports = Journal;
+module.exports = journal;

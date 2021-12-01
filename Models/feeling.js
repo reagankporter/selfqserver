@@ -1,7 +1,7 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const Feeling = db.define('feeling', {
+const feeling = db.define('feeling', {
     howFeeling: {
         type: DataTypes.STRING,
         allowNull: false
@@ -27,5 +27,5 @@ const Feeling = db.define('feeling', {
     }
 });
 
-module.exports = Feeling;
+module.exports = feeling;
 

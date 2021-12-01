@@ -1,7 +1,7 @@
 const Express = require('express');
 const router = Express.Router();
 let validateJWT = require('../Middleware/validate-jwt');
-const {FeelingModel} = require('../Models/feeling');
+const {FeelingModel} = require('../Models');
 
 
 //* Create List Item
@@ -27,7 +27,7 @@ router.post('/create', validateJWT, async (req,res) => {
 
 //* Update List Item
 router.put('/update/:entryId', validateJWT, async (req, res) => {
-    const {nameOfPlace, locationOfPlace, eventInPlace, whyAdded} = req.body.bucketList;
+    const {howFeeling, happyFeeling, okayFeeling, sadFeeling} = req.body.feeling;
     const feelingId = req.params.entryId;
     const userId = req.user.id;
 
