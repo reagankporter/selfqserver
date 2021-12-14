@@ -2,11 +2,11 @@
 
 Creator: Reagan Porter
 
-## Mission Statement
+# Mission Statement
 
 It’s great for users to always talk about their day to make them feel better and also being able to look back to see how much they improved.
 
-## Feeling Log 
+# Feeling Log 
 
 The feeling log enables users to record their daily feelings and moods. User will be able to input :
 
@@ -15,7 +15,7 @@ The feeling log enables users to record their daily feelings and moods. User wil
 * Something that made the user feel okay 
 * Something that made the user sad 
 
-## Day Log 
+# Day Log 
 
 The day log enables users to record their daily encounters. Users will be able to input :
 
@@ -24,21 +24,21 @@ The day log enables users to record their daily encounters. Users will be able t
 * What they will do to improve their day tomorrow
 * Day rating
 
-## EndPoints
+# EndPoints
 
-# User
+## User
 
 * User Sign Up
 * User Login
 
-# Feeling 
+## Feeling 
 
 * Feeling Create
 * Feeling Edit 
 * Feeling Delete
 * Feeling Get
 
-# Day Journal
+## Day Journal
 
 * Day Create
 * Day Edit 
