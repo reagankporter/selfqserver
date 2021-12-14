@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { UserModel } = require('../Models'); 
 const { UniqueConstraintError } = require('sequelize/lib/errors');
-let validateJWT = require("../Middleware/validate-jwt")
+// let validateJWT = require("../Middleware/validate-jwt")
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const AccessControl = require("accesscontrol");
-const validateAdmin = require("../middleware/validate-admin");
+// const AccessControl = require("accesscontrol");
+// const validateAdmin = require("../Middleware/validate-admin");
 
 router.post('/register', async (req, res) => {
 
