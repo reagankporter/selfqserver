@@ -1,3 +1,3 @@
-module.export = {
-    Admin: "ADMIN",
-};
+// module.export = {
+//     Admin: "ADMIN",
+// };

@@ -1,6 +1,4 @@
 const router = require('express').Router();
-
-
 const { UserModel } = require('../Models'); 
 const { UniqueConstraintError } = require('sequelize/lib/errors');
 let validateJWT = require("../middleware/validate-jwt")
@@ -83,7 +81,7 @@ router.post('/login', async (req, res) => {
             message: "Failed to log user in"
         })
     }
-})
+});
 
 //! ADMIN
 
