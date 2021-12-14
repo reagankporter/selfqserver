@@ -1,11 +1,14 @@
 const router = require('express').Router();
 
-//! The code below shows the user model being imported into the user controller file.
 
 const { UserModel } = require('../Models'); 
 const { UniqueConstraintError } = require('sequelize/lib/errors');
+let validateJWT = require("../middleware/validate-jwt")
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const AccessControl = require("accesscontrol");
+const validateAdmin = require("../middleware/validate-admin");
+
 
 
 router.post('/register', async (req, res) => {
@@ -13,16 +16,16 @@ router.post('/register', async (req, res) => {
     let {username, email, password} = req.body.user;
     try{
 
-        //! The code belows shows the usermodel being used to define the create data that needs to be displayed and stored in pgadmin.
        const User = await UserModel.create({
         
             username,
             email,
             password: bcrypt.hashSync(password, 13),
+            //! admin: boolean,
         });
-        //! The code below shows where a user token is created and where it will be used. The token is defined by {let token = jwt.sign({id: User.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});} and then entering the token when the 201 response sends assigning every new user a persnolized token.
 
-        let token = jwt.sign({id: User.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
+
+        let token = jwt.sign({id: User.id, email: User.email}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
             
         res.status(201).json({
             message: "User successfully registered",
@@ -80,7 +83,35 @@ router.post('/login', async (req, res) => {
             message: "Failed to log user in"
         })
     }
-});
+})
+
+//! ADMIN
+
+// router.get('/admin/allusers', validateAdmin, async (req, res) => {
+//     try {
+//         const allUsers = await UserModel.findAll();
+//         res.status(200).json(allUsers);
+//     } catch (err) {
+//         res.status(500).json({ error: err});
+//     }
+// })
+
+// router.delete('/admin/delete/:id', validateAdmin, async(req, res) => {
+//     const userId = req.params.id;
+
+//     try {
+//         const query = await UserModel.destroy({
+//             where: {id: userId}
+//         });
+//         res.status(200).json({
+//             mssage: "User Deleted"
+//         });
+//     } catch (err) {
+//         res.status(500).json({
+//             message: "Failed to delete user."
+//         });
+//     };
+// });
 
 
 module.exports = router;

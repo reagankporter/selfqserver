@@ -16,6 +16,10 @@
      type: DataTypes.STRING,
     allowNull: false,
                 },
-    });
+    // admin: {
+    //     type: DataTypes.BOOLEAN,
+    //     allowNull: false,
+    // },
+});
  
 module.exports = User;
