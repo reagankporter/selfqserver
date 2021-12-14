@@ -45,6 +45,10 @@ The day log enables users to record their daily encounters. Users will be able t
 * Day Delete
 * Day Get
 
+# Start Server 
+
+## Use npx nodemon to start server
+
 
 
 
